@@ -1,0 +1,20 @@
+{
+  "name": "reminders-tool",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "CLI tool to manage reminders with evidence tracking",
+  "bin": {
+    "reminders": "./src/cli.ts"
+  },
+  "scripts": {
+    "cli": "bun run src/cli.ts"
+  },
+  "dependencies": {
+    "meow": "^13.2.0",
+    "better-sqlite3": "^11.8.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "typescript": "^5.7.3"
+  }
+}
