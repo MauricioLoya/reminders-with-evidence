@@ -20,12 +20,12 @@ This skill provides instructions for interacting with the reminders CLI tool tha
 
 The reminders tool is located at:
 ```
-/Users/mauricioloya/Developer/personal/openclaw/reminders-with-evidence/
+/root/systems/reminders-with-evidence/
 ```
 
 All commands should be run from this directory with:
 ```bash
-export PATH="$HOME/.bun/bin:$PATH" && bun run src/cli.ts <command>
+cd /root/systems/reminders-with-evidence && bun run src/cli.ts <command>
 ```
 
 ## Available Commands
@@ -68,7 +68,7 @@ bun run src/cli.ts complete <id> --evidence "/path/to/screenshot.png"
 
 **Example:**
 ```bash
-bun run src/cli.ts complete 1 --evidence "/Users/mauricioloya/Screenshots/screenshot.png"
+bun run src/cli.ts complete 1 --evidence "/root/systems/screenshots/screenshot.png"
 ```
 
 ### 4. List all reminders
