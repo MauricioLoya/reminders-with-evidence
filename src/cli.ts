@@ -5,6 +5,7 @@ import { listCommand } from './commands/list.js'
 import { pendingCommand } from './commands/pending.js'
 import { completeCommand } from './commands/complete.js'
 import { resetCommand } from './commands/reset.js'
+import { deleteCommand } from './commands/delete.js'
 
 const cli = meow(
   `
@@ -17,6 +18,7 @@ const cli = meow(
     pending                                         Muestra los pendientes (JSON)
     complete <id> --evidence <path>                 Marca como completado
     reset <id>                                       Resetea para nuevo día
+    delete <id>                                      Borra recordatorio definitivamente
 
   Options
     --times, -t    Horarios separados por coma
@@ -28,6 +30,7 @@ const cli = meow(
     $ reminders pending
     $ reminders complete 1 --evidence "/path/to/screenshot.png"
     $ reminders reset 1
+    $ reminders delete 1
 `,
   {
     importMeta: import.meta,
@@ -91,6 +94,16 @@ switch (command) {
       process.exit(1)
     }
     resetCommand(id)
+    break
+  }
+
+  case 'delete': {
+    const id = parseInt(args[0], 10)
+    if (isNaN(id)) {
+      console.error('Error: El ID debe ser un número')
+      process.exit(1)
+    }
+    deleteCommand(id)
     break
   }
 

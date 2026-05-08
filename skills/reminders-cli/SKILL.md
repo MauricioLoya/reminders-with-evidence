@@ -87,6 +87,21 @@ bun run src/cli.ts reset <id>
 
 Resets a completed reminder back to pending so it can be asked again the next day.
 
+### 6. Delete a reminder (ONLY when user explicitly asks)
+
+```bash
+bun run src/cli.ts delete <id>
+```
+
+Permanently deletes a reminder from the database. **This action cannot be undone.**
+
+## ⚠️ Important: NEVER delete on your own initiative
+
+- **ONLY use delete when the user EXPLICITLY asks** (e.g., "borra esta tarea", "elimina el recordatorio")
+- **NEVER** take the initiative to delete a reminder - always wait for user request
+- If user wants to stop being asked about a task, prefer using `complete` instead of `delete`
+- Deleting is permanent - there's no way to recover the reminder
+
 ## Workflow with OpenClaw (Carqui)
 
 ### Morning: Check what to ask
